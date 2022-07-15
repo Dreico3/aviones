@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:aviones"
+        xmlns:local="clr-namespace:aviones" 
+        xmlns:viewmodels="clr-namespace:aviones.Views"
         mc:Ignorable="d"
         Title="inicio" 
         Height="600" 
@@ -47,7 +48,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border CornerRadius="10" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <Border CornerRadius="5" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -231,6 +232,13 @@
         
         
         <!--#endregion-->
+        <!--#region Datatemplate Usuarios-->
+        <DataTemplate x:Name="Usuarios"
+                      DataType="{x:Type viewmodels:Usuarios}">
+            <viewmodels:Usuarios DataContext="{Binding}"/>
+
+        </DataTemplate>
+        <!--#region -->
     </Window.Resources>
     <!--#region PROYECTO-->
     <Border CornerRadius="10"
@@ -284,7 +292,7 @@
                             <Image Grid.Column="0"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Source="/SCS/IMG/martillo.png"/>
+                                   Source="/escultura.png"/>
                         </Grid>
                     </Button>
                     <!--#endregion-->
@@ -306,7 +314,7 @@
                             <Image Grid.Column="0"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
-                                   Source="/martillo.png"/>
+                                   Source="/billete.png"/>
                             <TextBlock Grid.Column="1"
                                        Text="Informa"
                                        VerticalAlignment="Center"
@@ -365,6 +373,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="50"/>
+                <ContentControl Content="{Binding}"/>
 
             </Grid>
             <!--#endregion -->
@@ -390,7 +399,7 @@
                                       Cursor="Hand"
                                       BorderBrush="Transparent" Checked="TBshow" Unchecked="TBhide">
                             <ToggleButton.Background>
-                                <ImageBrush ImageSource= "/martillo.png"/>
+                                <ImageBrush ImageSource= "/localizacion.png"/>
                             </ToggleButton.Background>
                             <ToggleButton.Triggers>
                               
@@ -450,9 +459,100 @@
                                            Grid.Column="0"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
-                                           Source="/martillo.png"/>
+                                           Source="/billete.png"/>
                                     <TextBlock Grid.Column="1"
                                                Text="inicio"
+                                               FontSize="15"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region Segundo-->
+                        <ListViewItem Style="{DynamicResource ListViewItemStyle}" 
+                                      Height="70"
+                                      Width="200">
+                            <Button Style="{DynamicResource btnMenu}" x:Name="btnSegundo"
+                                    Height="70"
+                                    Width="200"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="50"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Source="/museo.png"/>
+                                    <TextBlock Grid.Column="1"
+                                               Text="Punto de ventas"
+                                               FontSize="15"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region tercero-->
+                        <ListViewItem Style="{DynamicResource ListViewItemStyle}" 
+                                      Height="70"
+                                      Width="200">
+                            <Button Style="{DynamicResource btnMenu}" x:Name="btnTercero"
+                                    Height="70"
+                                    Width="200"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="50"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Source="/sistema-solar.png"/>
+                                    <TextBlock Grid.Column="1"
+                                               Text="Productos"
+                                               FontSize="15"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <!--#endregion-->
+                        <!--#region Cuarto-->
+                        <ListViewItem Style="{DynamicResource ListViewItemStyle}" 
+                                      Height="70"
+                                      Width="200">
+                            <Button Style="{DynamicResource btnMenu}" x:Name="btnCuarto"
+                                    Height="70"
+                                    Width="200"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Click="btnUsuarios">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="50"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Source="/papiro.png"/>
+                                    <TextBlock Grid.Column="1"
+                                               Text="Usuarios"
                                                FontSize="15"
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Center"/>

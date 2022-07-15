@@ -8,11 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="billete.png" />
+    <None Remove="escultura.png" />
+    <None Remove="localizacion.png" />
     <None Remove="martillo.png" />
+    <None Remove="museo.png" />
+    <None Remove="papiro.png" />
+    <None Remove="SCS\IMG\escultura.png" />
+    <None Remove="SCS\IMG\martillo.png" />
+    <None Remove="sistema-solar.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="martillo.png" />
+    <Resource Include="billete.png" />
+    <Resource Include="escultura.png" />
+    <Resource Include="localizacion.png" />
+    <Resource Include="museo.png" />
+    <Resource Include="papiro.png" />
+    <Resource Include="SCS\IMG\martillo.png" />
+    <Resource Include="sistema-solar.png" />
   </ItemGroup>
 
 </Project>

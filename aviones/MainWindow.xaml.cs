@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aviones.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,6 +49,12 @@ namespace aviones
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void btnUsuarios(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Usuarios();
+            //MessageBox.Show("hola torola");
         }
     }
 }
