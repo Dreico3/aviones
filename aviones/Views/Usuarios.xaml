@@ -279,7 +279,8 @@
                     BorderBrush="#00796b"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Name="btnCrearUsuario">
+                    Name="btnCrearUsuario"
+                    Click="btnCrearUsuario_Click">
                 <TextBlock Text="Crear usuario"
                            FontSize="15"
                            Foreground="White"/>

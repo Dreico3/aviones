@@ -16,19 +16,18 @@ using System.Windows.Shapes;
 namespace aviones.Views
 {
     /// <summary>
-    /// Lógica de interacción para Usuarios.xaml
+    /// Lógica de interacción para CrudUsuarios.xaml
     /// </summary>
-    public partial class Usuarios : UserControl
+    public partial class CrudUsuarios : Page
     {
-        public Usuarios()
+        public CrudUsuarios()
         {
             InitializeComponent();
         }
 
-        private void btnCrearUsuario_Click(object sender, RoutedEventArgs e)
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            CrudUsuarios ventana = new CrudUsuarios();
-            FrameUsuarios.Content= ventana;
+            Content =new Usuarios();
         }
     }
 }

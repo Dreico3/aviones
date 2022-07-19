@@ -17,6 +17,7 @@
     <None Remove="SCS\IMG\escultura.png" />
     <None Remove="SCS\IMG\martillo.png" />
     <None Remove="sistema-solar.png" />
+    <None Remove="Views\escultura.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <Resource Include="papiro.png" />
     <Resource Include="SCS\IMG\martillo.png" />
     <Resource Include="sistema-solar.png" />
+    <Resource Include="Views\escultura.png" />
   </ItemGroup>
 
 </Project>
