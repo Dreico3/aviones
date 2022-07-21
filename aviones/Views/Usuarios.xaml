@@ -312,22 +312,49 @@
                             <DataTemplate>
                                 <DockPanel>
                                     <!--Creacion de botones para el crud -->
+                                    <Button Content="Consultar"
+                                            x:Name="btnConsultar"
+                                            Background="#0277bd"
+                                            Width="80"
+                                            BorderBrush="Transparent"
+                                            Foreground="White"
+                                            Style="{DynamicResource Buttonbuscar}"/>
+                                    <Button Content="Modificar"
+                                            x:Name="btnModificar"
+                                            Background="#0277bd"
+                                            Width="80"
+                                            BorderBrush="Transparent"
+                                            Foreground="White"
+                                            Style="{DynamicResource Buttonbuscar}"/>
+                                    <Button Content="Eliminar"
+                                            x:Name="btnEliminar"
+                                            Background="#0277bd"
+                                            Width="80"
+                                            BorderBrush="Transparent"
+                                            Foreground="White"
+                                            Style="{DynamicResource Buttonbuscar}"/>
                                 </DockPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="ID"
-                                            Width="50"/>
-                    <DataGridTemplateColumn Header="Nombres"
-                                            Width="100"/>
-                    <DataGridTemplateColumn Header="Apellidos"
-                                            Width="100"/>
-                    <DataGridTemplateColumn Header="Telefono"
-                                            Width="100"/>
-                    <DataGridTemplateColumn Header="Email"
-                                            Width="*"/>
-                    <DataGridTemplateColumn Header="Privilegio"
-                                            Width="*"/>
+                    <DataGridTextColumn Header="ID"
+                                        Width="50"
+                                        Binding="{Binding IdUsuario}"/>
+                    <DataGridTextColumn Header="Nombres"
+                                        Width="100"
+                                        Binding="{Binding Nombres}"/>
+                    <DataGridTextColumn Header="Apellidos"
+                                        Width="100"
+                                        Binding="{Binding Apellidos}"/>
+                    <DataGridTextColumn Header="Telefono"
+                                        Width="100"
+                                        Binding="{Binding Telefono}"/>
+                    <DataGridTextColumn Header="Email"
+                                        Width="*"
+                                        Binding="{Binding Correo}"/>
+                    <DataGridTextColumn Header="Privilegio"
+                                        Width="*"
+                                        Binding="{Binding NombrePrivilegio}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <!--#endregion-->
@@ -339,7 +366,7 @@
                    Grid.ColumnSpan="7">
                 
             </Frame>
-            <!--#region -->
+            <!--#endregion-->
         </Grid>
     </Border>
     <!--#endregion-->

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +26,21 @@ namespace aviones.Views
         public Usuarios()
         {
             InitializeComponent();
+            CargarDatos();
         }
-
+        //aqui conectamos la base de datos con nuestra app
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionDB"].ConnectionString);
+        void CargarDatos()
+        {
+            con.Open();
+            //cmd = comando
+            SqlCommand cmd= new SqlCommand("select IdUsuario,Nombres,Apellidos,Telefono, Correo, NombrePrivilegio from Usuarios inner join Privilegios on Usuarios.Privilegio=Privilegios.IdPrivilegios order by IdUsuario ASC", con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGrid.ItemsSource = dt.DefaultView;
+            con.Close();
+        }
         private void btnCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
             CrudUsuarios ventana = new CrudUsuarios();
