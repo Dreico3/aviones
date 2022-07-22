@@ -103,6 +103,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <!--#endregion-->
@@ -129,7 +131,47 @@
                     Foreground="White"
                     Click="btnRegresar_Click"/>
             <!--#endregion-->
+            <!--#region Crear-->
+            <Button x:Name="btnCrearUsuario"
+                    Content="Crear"
+                    Grid.Column="5"
+                    Grid.Row="20"
+                    Background="#00796b"
+                    BorderBrush="#00796b"
+                    Foreground="White"
+                    Width="100"
+                    Style="{DynamicResource ButtonRegresar}"
+                    Visibility="Hidden"
+                    Click="btnCrearUsuario_Click"/>
             <!--#endregion-->
+            <!--#region Borrar-->
+            <Button x:Name="btnBorrarUsuario"
+                    Content="Borrar"
+                    Grid.Column="5"
+                    Grid.Row="20"
+                    Background="#00796b"
+                    BorderBrush="#00796b"
+                    Foreground="White"
+                    Width="100"
+                    Style="{DynamicResource ButtonRegresar}"
+                    Visibility="Hidden"
+                    Click="btnBorrarUsuario_Click"/>
+            <!--#endregion-->
+            <!--#region Modificar-->
+            <Button x:Name="btnModificarUsuario"
+                    Content="Crear"
+                    Grid.Column="5"
+                    Grid.Row="20"
+                    Background="#00796b"
+                    BorderBrush="#00796b"
+                    Foreground="White"
+                    Width="100"
+                    Style="{DynamicResource ButtonRegresar}"
+                    Visibility="Hidden"
+                    Click="btnModificarUsuario_Click"/>
+            <!--#endregion-->
+            <!--#endregion-->
+            
             <!--#region Contenido-->
             <TextBlock Grid.Row="4"
                        Grid.Column="1"
@@ -200,11 +242,11 @@
             <Image Grid.Row="4"
                    Grid.Column="4"
                    Grid.ColumnSpan="2"
-                   Grid.RowSpan="11"
+                   Grid.RowSpan="9"
                    x:Name="imagen" 
                    Source="/Views/escultura.png"/>
             <Button Name="btnCanbiarImagen"
-                    Grid.Row="16"
+                    Grid.Row="14"
                     Grid.Column="4"
                     Grid.ColumnSpan="2"
                     Content="Cambiar imagen"
@@ -212,6 +254,23 @@
                     BorderBrush="#00796b"
                     Foreground="White"
                     Style="{DynamicResource ButtonRegresar}"/>
+            <TextBlock Grid.Column="4"
+                       Grid.Row="16"
+                       Text="Usuario:"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="tbUsuario"
+                     Grid.Column="5"
+                     Grid.Row="16"/>
+            <TextBlock Grid.Column="4"
+                       Grid.Row="18"
+                       Text="Contraseña"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="tbContraseña"
+                     Grid.Column="5"
+                     Grid.Row="18"/>
+
             <!--#endregion-->
         </Grid>
     </Border>

@@ -45,6 +45,7 @@ namespace aviones.Views
         {
             CrudUsuarios ventana = new CrudUsuarios();
             FrameUsuarios.Content= ventana;
+            ventana.btnCrearUsuario.Visibility = Visibility.Visible;
         }
     }
 }
