@@ -253,7 +253,8 @@
                     Background="#00796b"
                     BorderBrush="#00796b"
                     Foreground="White"
-                    Style="{DynamicResource ButtonRegresar}"/>
+                    Style="{DynamicResource ButtonRegresar}"
+                    Click="btnCanbiarImagen_Click"/>
             <TextBlock Grid.Column="4"
                        Grid.Row="16"
                        Text="Usuario:"

@@ -47,5 +47,10 @@ namespace aviones.Views
             FrameUsuarios.Content= ventana;
             ventana.btnCrearUsuario.Visibility = Visibility.Visible;
         }
+
+        private void btnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

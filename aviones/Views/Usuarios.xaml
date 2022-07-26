@@ -318,7 +318,9 @@
                                             Width="80"
                                             BorderBrush="Transparent"
                                             Foreground="White"
-                                            Style="{DynamicResource Buttonbuscar}"/>
+                                            Style="{DynamicResource Buttonbuscar}"
+                                            Click="btnConsultar_Click"
+                                            CommandParameter="{Binding IdUsuario}"/>
                                     <Button Content="Modificar"
                                             x:Name="btnModificar"
                                             Background="#0277bd"

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,20 +62,35 @@ namespace aviones.Views
                 SqlCommand cmd = new SqlCommand("select IdPrivilegios from Privilegios where NombrePrivilegio = '"+CbPrivilegios.Text+"'",con);
                 object valor =cmd.ExecuteScalar();
                 int privilegio = (int)valor;
-                //incertar datos a la base de datos
-                SqlCommand cmd2 = new SqlCommand("insert into Usuarios (Nombres, Apellidos, DUI, NIT, Correo, Telefono, Fecha_Nac, Privilegio, img, Usuario, Contrasenia) values(@Nombres, @Apellidos, @DUI, @NIT, @Correo, @Telefono, @Fecha_Nac, @Privilegio, @img, @Usuario, @Contrasenia)",con);
-                cmd2.Parameters.Add("@Nombres",SqlDbType.VarChar).Value = tbNombre.Text;
-                cmd2.Parameters.Add("@Apellidos",SqlDbType.VarChar).Value=tbApellidos.Text;
-                cmd2.Parameters.Add("@DUI",SqlDbType.Int).Value= int.Parse(tbDui.Text);
-                cmd2.Parameters.Add("@NIT",SqlDbType.Int).Value = int.Parse(tbNit.Text);
-                cmd2.Parameters.Add("@Fecha_Nac", SqlDbType.Date).Value = tbFchNacimiento.Text;
-                cmd2.Parameters.Add("@Telefono", SqlDbType.Int).Value = int.Parse(tbTelefono.Text);
-                cmd2.Parameters.Add("@Correo", SqlDbType.VarChar).Value = tbCorreo.Text;
-                cmd2.Parameters.Add("@Privilegio", SqlDbType.Int).Value = privilegio;
-                cmd2.Parameters.Add("@Usuario", SqlDbType.VarChar).Value = tbUsuario.Text;
-                //me falto para la imagen uy contraseña no hay tiepo
-               
+                //este patron sirve para encriptar la contraseña
 
+                //, @img, @Usuario, (EncryptByPassPhrase('" + patron + "','" + tbContraseña.Text + "'
+                //, img, Usuario, Contrasenia
+                string patron = "patronXD";
+                if (imagensubida)
+                {
+                    //incertar datos a la base de datos
+                    SqlCommand cmd2 = new SqlCommand("insert into Usuarios (Nombres, Apellidos, DUI, NIT, Correo, Telefono, Fecha_Nac, Privilegio,img, Usuario, Contrasenia) values(@Nombres, @Apellidos, @DUI, @NIT, @Correo, @Telefono, @Fecha_Nac, @Privilegio,@img, @Usuario,(EncryptByPassPhrase('" + patron+ "','" + tbContraseña.Text + "')))", con);
+                    cmd2.Parameters.Add("@Nombres", SqlDbType.VarChar).Value = tbNombre.Text;
+                    cmd2.Parameters.Add("@Apellidos", SqlDbType.VarChar).Value = tbApellidos.Text;
+                    cmd2.Parameters.Add("@DUI", SqlDbType.Int).Value = int.Parse(tbDui.Text);
+                    cmd2.Parameters.Add("@NIT", SqlDbType.Int).Value = int.Parse(tbNit.Text);
+                    cmd2.Parameters.Add("@Fecha_Nac", SqlDbType.Date).Value = tbFchNacimiento.Text;
+                    cmd2.Parameters.Add("@Telefono", SqlDbType.Int).Value = int.Parse(tbTelefono.Text);
+                    cmd2.Parameters.Add("@Correo", SqlDbType.VarChar).Value = tbCorreo.Text;
+                    cmd2.Parameters.Add("@Privilegio", SqlDbType.Int).Value = privilegio;
+                    cmd2.Parameters.Add("@Usuario", SqlDbType.VarChar).Value = tbUsuario.Text;
+                    cmd2.Parameters.AddWithValue("@img", SqlDbType.VarBinary).Value = data;
+
+                    //ejecutamos el query 
+                    cmd2.ExecuteNonQuery();
+                    Content = new Usuarios();
+                }
+                else
+                {
+                    MessageBox.Show("tiene que agregar una imagen para poder crear un usuario");
+                }
+                con.Close();
             }
         }
 
@@ -85,6 +102,23 @@ namespace aviones.Views
         private void btnModificarUsuario_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        //tomar en cuenta este byte es para poder almacenar la imagen
+        byte[] data;
+        private bool imagensubida = false;
+        private void btnCanbiarImagen_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+                FileStream fs =new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
+                data = new byte[fs.Length];
+                fs.Read(data, 0, System.Convert.ToInt32(fs.Length));
+                fs.Close();
+                ImageSourceConverter imgs = new ImageSourceConverter();
+                imagen.SetValue(Image.SourceProperty, imgs.ConvertFromString(ofd.FileName.ToString()));
+            }
+            imagensubida = true;
         }
     }
 }
