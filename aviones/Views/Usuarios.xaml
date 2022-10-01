@@ -327,14 +327,18 @@
                                             Width="80"
                                             BorderBrush="Transparent"
                                             Foreground="White"
-                                            Style="{DynamicResource Buttonbuscar}"/>
+                                            Style="{DynamicResource Buttonbuscar}"
+                                            Click="btnModificar_Click"
+                                            CommandParameter="{Binding IdUsuario}"/>
                                     <Button Content="Eliminar"
                                             x:Name="btnEliminar"
                                             Background="#0277bd"
                                             Width="80"
                                             BorderBrush="Transparent"
                                             Foreground="White"
-                                            Style="{DynamicResource Buttonbuscar}"/>
+                                            Style="{DynamicResource Buttonbuscar}"
+                                            Click="btnEliminar_Click"
+                                            CommandParameter="{Binding IdUsuario}"/>
                                 </DockPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

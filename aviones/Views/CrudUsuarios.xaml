@@ -159,7 +159,7 @@
             <!--#endregion-->
             <!--#region Modificar-->
             <Button x:Name="btnModificarUsuario"
-                    Content="Crear"
+                    Content="Actualizar"
                     Grid.Column="5"
                     Grid.Row="20"
                     Background="#00796b"
@@ -170,6 +170,7 @@
                     Visibility="Hidden"
                     Click="btnModificarUsuario_Click"/>
             <!--#endregion-->
+            
             <!--#endregion-->
             
             <!--#region Contenido-->
