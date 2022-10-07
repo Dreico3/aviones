@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Capa_de_negocios</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Capa de datos\Capa de datos.csproj" />
+    <ProjectReference Include="..\Capa Entidad\Capa Entidad.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Capa_de_negocios;
 
 namespace aviones.Views
 {
@@ -23,31 +24,44 @@ namespace aviones.Views
     /// </summary>
     public partial class Usuarios : UserControl
     {
+        readonly CN_Usuarios objeto_CN_Usuarios = new CN_Usuarios();
+        #region Inicial
         public Usuarios()
         {
             InitializeComponent();
             CargarDatos();
         }
+        #endregion
         //aqui conectamos la base de datos con nuestra app
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionDB"].ConnectionString);
+        //-->SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionDB"].ConnectionString);
+        #region cargar Usuarios
         void CargarDatos()
         {
-            con.Open();
             //cmd = comando
-            SqlCommand cmd = new SqlCommand("select IdUsuario,Nombres,Apellidos,Telefono, Correo, NombrePrivilegio from Usuarios inner join Privilegios on Usuarios.Privilegio=Privilegios.IdPrivilegios order by IdUsuario ASC", con);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGrid.ItemsSource = dt.DefaultView;
-            con.Close();
+            #region cargar datos de forma directa (No recomendable)
+            //con.Open();
+            //SqlCommand cmd = new SqlCommand("select IdUsuario,Nombres,Apellidos,Telefono, Correo, NombrePrivilegio from Usuarios inner join Privilegios on Usuarios.Privilegio=Privilegios.IdPrivilegios order by IdUsuario ASC", con);
+            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adapter.Fill(dt);
+            //dataGrid.ItemsSource = dt.DefaultView;
+            //con.Close();
+            #endregion
+
+            dataGrid.ItemsSource = objeto_CN_Usuarios.CargarUsuarios().DefaultView;
         }
+        #endregion
+
+        #region Agregar
         private void btnCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
             CrudUsuarios ventana = new CrudUsuarios();
             FrameUsuarios.Content = ventana;
             ventana.btnCrearUsuario.Visibility = Visibility.Visible;
         }
+        #endregion
 
+        #region Consultar
         private void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
             int id = (int)((Button)sender).CommandParameter; 
@@ -68,7 +82,9 @@ namespace aviones.Views
             ventana.tbContraseña.IsEnabled = false;
             ventana.btnCanbiarImagen.IsEnabled = false;
         }
+        #endregion
 
+        #region actualizar datos
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             int id = (int)((Button)sender).CommandParameter;
@@ -91,7 +107,9 @@ namespace aviones.Views
 
             ventana.btnModificarUsuario.Visibility = Visibility.Visible;
         }
+        #endregion
 
+        #region eliminar
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             int id = (int)((Button)sender).CommandParameter;
@@ -114,5 +132,6 @@ namespace aviones.Views
 
             ventana.btnBorrarUsuario.Visibility = Visibility.Visible;
         }
+        #endregion
     }
 }

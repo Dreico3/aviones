@@ -56,5 +56,14 @@ namespace aviones
             DataContext = new Usuarios();
             //MessageBox.Show("hola torola");
         }
+
+        //esta funcion esparapoder mover la ventana de la aplicacion
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
         Background="Transparent"
         >
     <Window.Resources>
@@ -251,6 +252,7 @@
                   Background="Transparent"
                   VerticalAlignment="Top">
                 <Border CornerRadius="10,10,0,0"
+                        Opacity=".9"
                         Background="#004c8c"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -368,11 +370,8 @@
                   Height="565"
                   Width="925" PreviewMouseLeftButtonDown="previewMouselef">
                 <Border CornerRadius="0,0,10,0"
+                        Opacity=".9"
                         Background="#e0e0e0"/>
-                <TextBlock Text="aviones? q mrd"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontSize="50"/>
                 <ContentControl Content="{Binding}"/>
 
             </Grid>
@@ -384,6 +383,7 @@
                   HorizontalAlignment="Left"
                   Margin="0,35,0,0">
                 <Border Background="#0277bd"
+                        Opacity=".9"
                         CornerRadius="0,0,0,10"/>
                 <!--#region MENU-->
                 <StackPanel Background="Transparent"
