@@ -48,7 +48,7 @@ namespace aviones
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void btnUsuarios(object sender, RoutedEventArgs e)

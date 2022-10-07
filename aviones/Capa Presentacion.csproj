@@ -38,7 +38,7 @@
     <Resource Include="papiro.png" />
     <Resource Include="SCS\IMG\martillo.png" />
     <Resource Include="sistema-solar.png" />
-    <Resource Include="Views\escultura.png" />
+    <SplashScreen Include="Views\escultura.png" />
   </ItemGroup>
 
 </Project>

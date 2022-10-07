@@ -56,5 +56,12 @@ namespace Capa_de_negocios
             return objDatos.CargarUsuarios();
         }
         #endregion
+
+        #region Buscar Usuarios
+        public DataTable Buscar(string buscar)
+        {
+            return objDatos.Buscar(buscar);
+        }
+        #endregion
     }
 }

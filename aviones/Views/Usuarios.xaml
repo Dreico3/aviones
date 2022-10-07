@@ -252,22 +252,9 @@
                      Grid.Row="2"
                      Background="Transparent"
                      BorderBrush="#0277bd"
+                     TextChanged="TextBox_TextChanged"
+                     x:Name="tbBuscar"
                      FontSize="20"/>
-            <!--#endregion-->
-            <!--#region boton buscar-->
-            <Button Style="{DynamicResource Buttonbuscar}" Grid.Column="3"
-                    Grid.Row="2"
-                    Margin="10,0,0,0"
-                    Width="100"
-                    Background="#0277bd"
-                    BorderBrush="#0277bd"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Name="btnBuscar">
-                <TextBlock Text="buscar"
-                           FontSize="15"
-                           Foreground="White"/>
-            </Button>
             <!--#endregion-->
             <!--#region boton Crear usuarios-->
             <Button Style="{DynamicResource Buttonbuscar}" 
@@ -354,7 +341,7 @@
                                         Binding="{Binding Apellidos}"/>
                     <DataGridTextColumn Header="Telefono"
                                         Width="100"
-                                        Binding="{Binding Telefono}"/>
+                                        Binding="{Binding telefono}"/>
                     <DataGridTextColumn Header="Email"
                                         Width="*"
                                         Binding="{Binding Correo}"/>

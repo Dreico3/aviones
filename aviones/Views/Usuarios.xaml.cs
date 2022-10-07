@@ -29,7 +29,7 @@ namespace aviones.Views
         public Usuarios()
         {
             InitializeComponent();
-            CargarDatos();
+            Buscar("");
         }
         #endregion
         //aqui conectamos la base de datos con nuestra app
@@ -131,6 +131,16 @@ namespace aviones.Views
             ventana.btnCanbiarImagen.IsEnabled = false;
 
             ventana.btnBorrarUsuario.Visibility = Visibility.Visible;
+        }
+        #endregion
+        #region Buscar
+        public void Buscar(string buscar)
+        {
+            dataGrid.ItemsSource = objeto_CN_Usuarios.Buscar(buscar).DefaultView;
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Buscar(tbBuscar.Text);
         }
         #endregion
     }
