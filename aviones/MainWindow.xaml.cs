@@ -1,4 +1,5 @@
 ﻿using aviones.Views;
+using Capa_Presentacion.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,11 @@ namespace aviones
             {
                 DragMove();
             }
+        }
+
+        private void btnProductos_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new Productos();
         }
     }
 }

@@ -503,10 +503,12 @@
                         <ListViewItem Style="{DynamicResource ListViewItemStyle}" 
                                       Height="70"
                                       Width="200">
-                            <Button Style="{DynamicResource btnMenu}" x:Name="btnTercero"
+                            <Button Style="{DynamicResource btnMenu}" 
+                                    x:Name="btnProductos"
                                     Height="70"
                                     Width="200"
                                     HorizontalAlignment="Left"
+                                    Click="btnProductos_Click"
                                     Cursor="Hand"
                                     Background="Transparent"
                                     BorderBrush="Transparent">
